@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RichBoyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AriseCodeList">
+    <Key>
+      <PropertyRef Name="AriseCodeListId" />
+    </Key>
+    <Property Name="AriseCodeListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cate" Type="varchar(max)" />
+    <Property Name="Code" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="Url" Type="varchar(max)" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Regdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PriceAfterWorkingHour">
+    <Key>
+      <PropertyRef Name="PriceAfterWorkingHourId" />
+    </Key>
+    <Property Name="PriceAfterWorkingHourId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date" Type="date" />
+    <Property Name="cate" Type="varchar(max)" />
+    <Property Name="rank" Type="bigint" />
+    <Property Name="name" Type="varchar(max)" />
+    <Property Name="symbolCode" Type="varchar(max)" />
+    <Property Name="code" Type="varchar(max)" />
+    <Property Name="tradePrice" Type="float" />
+    <Property Name="change" Type="varchar(max)" />
+    <Property Name="changePrice" Type="float" />
+    <Property Name="changeRate" Type="float" />
+    <Property Name="pricePerformance" Type="float" />
+    <Property Name="accTradeVolume" Type="bigint" />
+    <Property Name="accTradePrice" Type="bigint" />
+    <Property Name="regularHoursTradePrice" Type="float" />
+    <Property Name="regularHoursChange" Type="varchar(max)" />
+    <Property Name="regularHoursChangePrice" Type="float" />
+    <Property Name="regularHoursChangeRate" Type="float" />
+    <Property Name="Regdate" Type="datetime" />
+    <Property Name="codeNum" Type="varchar(max)" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <Function Name="GetSummmary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="from" Type="date" Mode="In" />
+    <Parameter Name="to" Type="date" Mode="In" />
+  </Function>
+  <EntityContainer Name="RichBoyModelStoreContainer">
+    <EntitySet Name="AriseCodeList" EntityType="Self.AriseCodeList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PriceAfterWorkingHour" EntityType="Self.PriceAfterWorkingHour" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

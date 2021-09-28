@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RichBoyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AriseCodeList">
+          <Key>
+            <PropertyRef Name="AriseCodeListId" />
+          </Key>
+          <Property Name="AriseCodeListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cate" Type="varchar(max)" />
+          <Property Name="Code" Type="varchar(max)" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="Url" Type="varchar(max)" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Regdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PriceAfterWorkingHour">
+          <Key>
+            <PropertyRef Name="PriceAfterWorkingHourId" />
+          </Key>
+          <Property Name="PriceAfterWorkingHourId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="cate" Type="varchar(max)" />
+          <Property Name="rank" Type="bigint" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="symbolCode" Type="varchar(max)" />
+          <Property Name="code" Type="varchar(max)" />
+          <Property Name="tradePrice" Type="float" />
+          <Property Name="change" Type="varchar(max)" />
+          <Property Name="changePrice" Type="float" />
+          <Property Name="changeRate" Type="float" />
+          <Property Name="pricePerformance" Type="float" />
+          <Property Name="accTradeVolume" Type="bigint" />
+          <Property Name="accTradePrice" Type="bigint" />
+          <Property Name="regularHoursTradePrice" Type="float" />
+          <Property Name="regularHoursChange" Type="varchar(max)" />
+          <Property Name="regularHoursChangePrice" Type="float" />
+          <Property Name="regularHoursChangeRate" Type="float" />
+          <Property Name="Regdate" Type="datetime" />
+          <Property Name="codeNum" Type="varchar(max)" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <Function Name="GetSummmary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="from" Type="date" Mode="In" />
+          <Parameter Name="to" Type="date" Mode="In" />
+        </Function>
+        <EntityContainer Name="RichBoyModelStoreContainer">
+          <EntitySet Name="AriseCodeList" EntityType="Self.AriseCodeList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriceAfterWorkingHour" EntityType="Self.PriceAfterWorkingHour" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RichBoyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AriseCodeList">
+          <Key>
+            <PropertyRef Name="AriseCodeListId" />
+          </Key>
+          <Property Name="AriseCodeListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Regdate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PriceAfterWorkingHour">
+          <Key>
+            <PropertyRef Name="PriceAfterWorkingHourId" />
+          </Key>
+          <Property Name="PriceAfterWorkingHourId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="cate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="rank" Type="Int64" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="symbolCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tradePrice" Type="Double" />
+          <Property Name="change" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="changePrice" Type="Double" />
+          <Property Name="changeRate" Type="Double" />
+          <Property Name="pricePerformance" Type="Double" />
+          <Property Name="accTradeVolume" Type="Int64" />
+          <Property Name="accTradePrice" Type="Int64" />
+          <Property Name="regularHoursTradePrice" Type="Double" />
+          <Property Name="regularHoursChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="regularHoursChangePrice" Type="Double" />
+          <Property Name="regularHoursChangeRate" Type="Double" />
+          <Property Name="Regdate" Type="DateTime" Precision="3" />
+          <Property Name="codeNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityContainer Name="RichBoyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AriseCodeList" EntityType="Self.AriseCodeList" />
+          <EntitySet Name="PriceAfterWorkingHour" EntityType="Self.PriceAfterWorkingHour" />
+          <FunctionImport Name="GetSummmary" ReturnType="Collection(RichBoyModel.GetSummmary_Result)">
+            <Parameter Name="from" Mode="In" Type="DateTime" />
+            <Parameter Name="to" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetSummmary_Result">
+          <Property Type="String" Name="KospiKosdaq" Nullable="true" />
+          <Property Type="String" Name="Cate" Nullable="true" />
+          <Property Type="String" Name="Code" Nullable="true" />
+          <Property Type="String" Name="DaumCode" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" />
+          <Property Type="String" Name="Url" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" />
+          <Property Type="Int64" Name="rank" Nullable="true" />
+          <Property Type="Double" Name="TradePrice" Nullable="true" />
+          <Property Type="String" Name="TradeChange" Nullable="true" />
+          <Property Type="Double" Name="ClosePrice" Nullable="true" />
+          <Property Type="Double" Name="ChangePrice" Nullable="true" />
+          <Property Type="Double" Name="ChangeRate" Nullable="true" />
+          <Property Type="Int64" Name="TradeVolume" Nullable="true" />
+          <Property Type="String" Name="RegularHoursChange" Nullable="true" />
+          <Property Type="Double" Name="RegularHoursChangePrice" Nullable="true" />
+          <Property Type="Double" Name="RegularHoursChangeRate" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RichBoyModelStoreContainer" CdmEntityContainer="RichBoyEntities">
+          <EntitySetMapping Name="AriseCodeList">
+            <EntityTypeMapping TypeName="RichBoyModel.AriseCodeList">
+              <MappingFragment StoreEntitySet="AriseCodeList">
+                <ScalarProperty Name="AriseCodeListId" ColumnName="AriseCodeListId" />
+                <ScalarProperty Name="Cate" ColumnName="Cate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Regdate" ColumnName="Regdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceAfterWorkingHour">
+            <EntityTypeMapping TypeName="RichBoyModel.PriceAfterWorkingHour">
+              <MappingFragment StoreEntitySet="PriceAfterWorkingHour">
+                <ScalarProperty Name="PriceAfterWorkingHourId" ColumnName="PriceAfterWorkingHourId" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="cate" ColumnName="cate" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="symbolCode" ColumnName="symbolCode" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="tradePrice" ColumnName="tradePrice" />
+                <ScalarProperty Name="change" ColumnName="change" />
+                <ScalarProperty Name="changePrice" ColumnName="changePrice" />
+                <ScalarProperty Name="changeRate" ColumnName="changeRate" />
+                <ScalarProperty Name="pricePerformance" ColumnName="pricePerformance" />
+                <ScalarProperty Name="accTradeVolume" ColumnName="accTradeVolume" />
+                <ScalarProperty Name="accTradePrice" ColumnName="accTradePrice" />
+                <ScalarProperty Name="regularHoursTradePrice" ColumnName="regularHoursTradePrice" />
+                <ScalarProperty Name="regularHoursChange" ColumnName="regularHoursChange" />
+                <ScalarProperty Name="regularHoursChangePrice" ColumnName="regularHoursChangePrice" />
+                <ScalarProperty Name="regularHoursChangeRate" ColumnName="regularHoursChangeRate" />
+                <ScalarProperty Name="Regdate" ColumnName="Regdate" />
+                <ScalarProperty Name="codeNum" ColumnName="codeNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetSummmary" FunctionName="RichBoyModel.Store.GetSummmary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RichBoyModel.GetSummmary_Result">
+                <ScalarProperty Name="KospiKosdaq" ColumnName="KospiKosdaq" />
+                <ScalarProperty Name="Cate" ColumnName="Cate" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DaumCode" ColumnName="DaumCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="TradePrice" ColumnName="TradePrice" />
+                <ScalarProperty Name="TradeChange" ColumnName="TradeChange" />
+                <ScalarProperty Name="ClosePrice" ColumnName="ClosePrice" />
+                <ScalarProperty Name="ChangePrice" ColumnName="ChangePrice" />
+                <ScalarProperty Name="ChangeRate" ColumnName="ChangeRate" />
+                <ScalarProperty Name="TradeVolume" ColumnName="TradeVolume" />
+                <ScalarProperty Name="RegularHoursChange" ColumnName="RegularHoursChange" />
+                <ScalarProperty Name="RegularHoursChangePrice" ColumnName="RegularHoursChangePrice" />
+                <ScalarProperty Name="RegularHoursChangeRate" ColumnName="RegularHoursChangeRate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="없음" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

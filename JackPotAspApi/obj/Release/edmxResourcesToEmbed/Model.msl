@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RichBoyModelStoreContainer" CdmEntityContainer="RichBoyEntities">
+    <EntitySetMapping Name="AriseCodeList">
+      <EntityTypeMapping TypeName="RichBoyModel.AriseCodeList">
+        <MappingFragment StoreEntitySet="AriseCodeList">
+          <ScalarProperty Name="AriseCodeListId" ColumnName="AriseCodeListId" />
+          <ScalarProperty Name="Cate" ColumnName="Cate" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Regdate" ColumnName="Regdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceAfterWorkingHour">
+      <EntityTypeMapping TypeName="RichBoyModel.PriceAfterWorkingHour">
+        <MappingFragment StoreEntitySet="PriceAfterWorkingHour">
+          <ScalarProperty Name="PriceAfterWorkingHourId" ColumnName="PriceAfterWorkingHourId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="cate" ColumnName="cate" />
+          <ScalarProperty Name="rank" ColumnName="rank" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="symbolCode" ColumnName="symbolCode" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="tradePrice" ColumnName="tradePrice" />
+          <ScalarProperty Name="change" ColumnName="change" />
+          <ScalarProperty Name="changePrice" ColumnName="changePrice" />
+          <ScalarProperty Name="changeRate" ColumnName="changeRate" />
+          <ScalarProperty Name="pricePerformance" ColumnName="pricePerformance" />
+          <ScalarProperty Name="accTradeVolume" ColumnName="accTradeVolume" />
+          <ScalarProperty Name="accTradePrice" ColumnName="accTradePrice" />
+          <ScalarProperty Name="regularHoursTradePrice" ColumnName="regularHoursTradePrice" />
+          <ScalarProperty Name="regularHoursChange" ColumnName="regularHoursChange" />
+          <ScalarProperty Name="regularHoursChangePrice" ColumnName="regularHoursChangePrice" />
+          <ScalarProperty Name="regularHoursChangeRate" ColumnName="regularHoursChangeRate" />
+          <ScalarProperty Name="Regdate" ColumnName="Regdate" />
+          <ScalarProperty Name="codeNum" ColumnName="codeNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetSummmary" FunctionName="RichBoyModel.Store.GetSummmary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RichBoyModel.GetSummmary_Result">
+          <ScalarProperty Name="KospiKosdaq" ColumnName="KospiKosdaq" />
+          <ScalarProperty Name="Cate" ColumnName="Cate" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DaumCode" ColumnName="DaumCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="rank" ColumnName="rank" />
+          <ScalarProperty Name="TradePrice" ColumnName="TradePrice" />
+          <ScalarProperty Name="TradeChange" ColumnName="TradeChange" />
+          <ScalarProperty Name="ClosePrice" ColumnName="ClosePrice" />
+          <ScalarProperty Name="ChangePrice" ColumnName="ChangePrice" />
+          <ScalarProperty Name="ChangeRate" ColumnName="ChangeRate" />
+          <ScalarProperty Name="TradeVolume" ColumnName="TradeVolume" />
+          <ScalarProperty Name="RegularHoursChange" ColumnName="RegularHoursChange" />
+          <ScalarProperty Name="RegularHoursChangePrice" ColumnName="RegularHoursChangePrice" />
+          <ScalarProperty Name="RegularHoursChangeRate" ColumnName="RegularHoursChangeRate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

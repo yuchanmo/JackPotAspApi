@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RichBoyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AriseCodeList">
+    <Key>
+      <PropertyRef Name="AriseCodeListId" />
+    </Key>
+    <Property Name="AriseCodeListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Regdate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PriceAfterWorkingHour">
+    <Key>
+      <PropertyRef Name="PriceAfterWorkingHourId" />
+    </Key>
+    <Property Name="PriceAfterWorkingHourId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <Property Name="cate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rank" Type="Int64" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="symbolCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tradePrice" Type="Double" />
+    <Property Name="change" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="changePrice" Type="Double" />
+    <Property Name="changeRate" Type="Double" />
+    <Property Name="pricePerformance" Type="Double" />
+    <Property Name="accTradeVolume" Type="Int64" />
+    <Property Name="accTradePrice" Type="Int64" />
+    <Property Name="regularHoursTradePrice" Type="Double" />
+    <Property Name="regularHoursChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="regularHoursChangePrice" Type="Double" />
+    <Property Name="regularHoursChangeRate" Type="Double" />
+    <Property Name="Regdate" Type="DateTime" Precision="3" />
+    <Property Name="codeNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityContainer Name="RichBoyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AriseCodeList" EntityType="Self.AriseCodeList" />
+    <EntitySet Name="PriceAfterWorkingHour" EntityType="Self.PriceAfterWorkingHour" />
+    <FunctionImport Name="GetSummmary" ReturnType="Collection(RichBoyModel.GetSummmary_Result)">
+      <Parameter Name="from" Mode="In" Type="DateTime" />
+      <Parameter Name="to" Mode="In" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetSummmary_Result">
+    <Property Type="String" Name="KospiKosdaq" Nullable="true" />
+    <Property Type="String" Name="Cate" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="DaumCode" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="Url" Nullable="true" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="Int64" Name="rank" Nullable="true" />
+    <Property Type="Double" Name="TradePrice" Nullable="true" />
+    <Property Type="String" Name="TradeChange" Nullable="true" />
+    <Property Type="Double" Name="ClosePrice" Nullable="true" />
+    <Property Type="Double" Name="ChangePrice" Nullable="true" />
+    <Property Type="Double" Name="ChangeRate" Nullable="true" />
+    <Property Type="Int64" Name="TradeVolume" Nullable="true" />
+    <Property Type="String" Name="RegularHoursChange" Nullable="true" />
+    <Property Type="Double" Name="RegularHoursChangePrice" Nullable="true" />
+    <Property Type="Double" Name="RegularHoursChangeRate" Nullable="true" />
+  </ComplexType>
+</Schema>
